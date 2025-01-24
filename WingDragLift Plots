@@ -1,1 +1,22 @@
-kdasdkskdsal
+%% Plots for this function (Figure 20 - 29)
+if Plot_Wing_Data == 1
+
+    %% Aerodynamics Plotting
+    set(groot, 'DefaultLineLineWidth', 2);
+    %Lift Curves
+    figure(20)
+    hold on
+    plot(AoA,Airfoil{1,(5:22)},'--','Color',"#4DBEEE");
+    plot(AoA,AirfoilLiftCurve{1,:},'Color',"#A2142F");
+    plot(AoA,WingLiftCurve{1,:},'Color',"#0072BD");
+    % plot(Benchmark.AoA(:),Benchmark.CL(:),'--','Color',"#77AC30");
+    xlabel('Angle of Attack [deg]');
+    ylabel('Coefficient of Lift (CL) [ ]');
+    title('Lift Curve Slope Modeling');
+    legend('Airfoil Data','Airfoil Fit','Wing Model','Location','southeast');
+    % legend('Airfoil Data','Airfoil Fit','Wing Model','Benchmark Aircraft','Location','southeast');
+    grid on
+    hold off
+end
+
+end
