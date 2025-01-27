@@ -1,0 +1,10 @@
+Re_w = (Design_Input.V_o(n)*WingGeo_Data.MAC_w(n))./ATMOS.nu(n); %Wing Re
+    Cf_w = 0.074/(Re_w^0.2); %Wing Flat Plate Coef of Friction for Turbulent Flow
+    FF_w(n) = (1 + ((0.6/(Airfoil.X_thick_w(n)))*(Airfoil.Thick_w(n))) ...
+        + (100*((Airfoil.Thick_w(n))^4)))*(1.35*(Mach^0.18)*(cosd(Design_Input.Sweep_w(n))^0.28)); %Wing Form Factor
+    
+    if FF_w(n) < 1
+        FF_w(n) = 1;
+    end
+
+    CDo_w(n) = (Cf_w*FF_w(n)*Design_Input.Q_w(n)*Design_Input.Swet_w(n))/Design_Input.Sref_w(n); %Contribution of Wing to CDo
